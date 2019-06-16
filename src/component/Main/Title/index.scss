@@ -1,0 +1,15 @@
+.title {
+    height: 70px;
+    border-bottom: 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(216, 241, 237);
+    .header {
+        p {
+            margin: 0;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    }
+}
