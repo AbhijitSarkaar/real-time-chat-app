@@ -23,7 +23,7 @@ export default class Main extends Component {
     onSend = (text) => {
         let messages = [...this.state.messages];
         messages.push({
-            senderId: 'abhi',
+            senderId: this.props.username,
             text: text
         });
         this.setState({

@@ -14,7 +14,7 @@ class App extends Component {
     if(this.state.userNameSubmitted) {
       return (
         <div className="chat-app">
-            <Main />
+            <Main username={this.state.username} />
         </div>
       );
     }
