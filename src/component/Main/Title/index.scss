@@ -4,12 +4,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgb(216, 241, 237);
+    background: #eeddde;
     .header {
         p {
             margin: 0;
             font-size: 20px;
             font-weight: bold;
+            font-family: cursive;
         }
     }
 }
