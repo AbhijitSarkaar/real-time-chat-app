@@ -8,7 +8,7 @@ import './index.scss';
 export default class Main extends Component {
     constructor(props) {
         super(props);
-        this.socket = io('http://localhost:5000', { query: `username=${this.props.username}` }).connect();
+        this.socket = io('http://localhost:5000').connect();
         //sending the username to the server when the connection is established. The server is established at 5000 port.
         //It's present in the chat-api folder
         this.state = {
