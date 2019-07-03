@@ -2,22 +2,15 @@ import React,{Component} from 'react';
 import Title from './Title';
 import MessageBody from './MessageBody';
 import MessageInput from './MessageInput';
+import io from 'socket.io-client';
 import './index.scss';
 
 export default class Main extends Component {
     constructor(props) {
         super(props);
+        this.socket = io('http://localhost:5000').connect();
         this.state = {
-            messages: [
-                {
-                    senderId: "perborgen",
-                    text: "who'll win?"
-                  },
-                  {
-                    senderId: "janedoe",
-                    text: "who'll win?"
-                  }
-            ]
+            messages: []
         }
     }
     onSend = (text) => {
