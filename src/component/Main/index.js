@@ -8,20 +8,30 @@ import './index.scss';
 export default class Main extends Component {
     constructor(props) {
         super(props);
-        this.socket = io('http://localhost:5000').connect();
+        this.socket = io('http://localhost:5000', { query: `username=${this.props.username}` }).connect();
+        //sending the username to the server when the connection is established
         this.state = {
             messages: []
         }
-    }
-    onSend = (text) => {
-        let messages = [...this.state.messages];
-        messages.push({
-            senderId: this.props.username,
-            text: text
+        //
+        this.socket.on('server', message => {
+            this.addMessage(message);
         });
+    }
+    addMessage = (message) => {
+        let messages = [...this.state.messages];
+        messages.push(message);
         this.setState({
             messages
         });
+    }
+    onSend = (text) => {
+        let message = {
+            username: this.props.username,
+            message: text
+        }
+        this.socket.emit('client', message);
+        this.addMessage(message);
     }
     render() {
         return (
